@@ -2,10 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-Orange: "#FF5500",
-        paleOrange: "#FED6C6",
-        veryDarkBlue: "#1B1E34",
-        darkGrayishBlue: "#3B426A",
-        grayishBlue: "#A0AFC0",
-        lightGrayishBlue: "#F0F5FC", */
+nav {
+  @apply border-lightGrayishBlue flex items-center justify-between;
+  @apply border-b-[3px] h-[7rem] m-auto max-w-[85rem] px-[2vw];
+}
+
+#Navbar-s1 {
+  @apply flex items-center;
+}
+
+#Navbar-s1 > img {
+  @apply w-[13rem] h-[2rem] mr-[4rem];
+}
+
+#Navbar-s1 ul {
+  @apply flex space-x-7 items-center;
+}
+
+#Navbar-s1 ul li {
+  @apply hover:font-bold border-transparent hover:border-Orange;
+  @apply border-b-[6px] h-[7rem] pt-[2.6rem] text-[1.2rem];
+  @apply text-grayishBlue hover:text-veryDarkBlue;
+}
+
+#Navbar-s2 {
+  @apply flex items-center justify-between;
+  @apply w-[7.5rem];
+}
+
+#Navbar-s2 > img {
+  @apply cursor-pointer hover:border-2 hover:border-Orange rounded-full;
+  @apply h-[3.5rem] w-[3.5rem];
+}

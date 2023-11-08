@@ -17,6 +17,9 @@ module.exports = {
         blackLightbox: "rgba(0, 0, 0, 0.75)", // 75% opacity for lightbox background
       },
     },
+    screens: {
+      md: "768px",
+    },
   },
   plugins: [],
 };
