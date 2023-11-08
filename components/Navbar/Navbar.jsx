@@ -1,18 +1,27 @@
 import "./navbar.css";
+// assets
+import Image from "next/image";
+import logo from "@/public/logo.svg";
+import avatarImg from "@/public/image-avatar.png";
+import cartLogo from "@/public/icon-cart.svg";
+
 export default function Navbar() {
   const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
 
   return (
-    <nav className="bg-gray-800 text-white p-4 flex items-center justify-between">
+    <nav className="border-b-[3px] border-lightGrayishBlue h-[7rem] m-auto max-w-[85rem] flex items-center justify-between">
       {/* First element: Image */}
       <div className="flex items-center">
-        <img src="/your-image-source.png" alt="Logo" className="w-12 h-12" />
+        <Image src={logo} alt="Logo" className="w-[13rem] h-[2rem] mr-[4rem]" />
 
         {/* Second element: List */}
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-7 items-center ">
           {menuItems.map((item, index) => (
-            <li key={index}>
-              <a href="#" className="hover:text-indigo-500">
+            <li
+              key={index}
+              className="text-grayishBlue hover:text-veryDarkBlue hover:font-bold border-b-[6px] border-transparent hover:border-Orange h-[7rem] pt-[2.6rem]"
+            >
+              <a href="#" className="text-[1.2rem]">
                 {item}
               </a>
             </li>
@@ -21,14 +30,14 @@ export default function Navbar() {
       </div>
 
       {/* Third element: Div with button and image */}
-      <div className="flex items-center">
-        <button className="bg-indigo-500 text-white px-4 py-2 rounded-md mr-4">
-          Button
+      <div className="flex items-center w-[7rem] justify-between">
+        <button>
+          <Image src={cartLogo} alt="cart logo" />
         </button>
-        <img
-          src="/your-button-image.png"
+        <Image
+          src={avatarImg}
           alt="Button Image"
-          className="w-6 h-6"
+          className="cursor-pointer h-[3.5rem] w-[3.5rem] hover:border-2 hover:border-Orange rounded-full"
         />
       </div>
     </nav>
