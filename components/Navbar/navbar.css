@@ -2,35 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-nav {
-  @apply border-lightGrayishBlue flex items-center justify-between;
-  @apply border-b-[3px] h-[7rem] m-auto max-w-[85rem] px-[2vw];
-}
+@layer components {
+  nav {
+    @apply border-lightGrayishBlue flex items-center justify-between;
+    @apply border-b-[3px] h-[7rem] m-auto max-w-[85rem] px-[2vw];
+  }
 
-#Navbar-s1 {
-  @apply flex items-center;
-}
+  #Navbar-s1 {
+    @apply flex items-center;
+  }
 
-#Navbar-s1 > img {
-  @apply w-[13rem] h-[2rem] mr-[4rem];
-}
+  #Navbar-s1 > img {
+    @apply w-[13rem] h-[2rem] mr-[4rem];
+  }
 
-#Navbar-s1 ul {
-  @apply flex space-x-7 items-center;
-}
+  .toggle--show {
+    @apply visible;
+  }
 
-#Navbar-s1 ul li {
-  @apply hover:font-bold border-transparent hover:border-Orange;
-  @apply border-b-[6px] h-[7rem] pt-[2.6rem] text-[1.2rem];
-  @apply text-grayishBlue hover:text-veryDarkBlue;
-}
+  .toggle--hide {
+    @apply sm:hidden md:block;
+  }
 
-#Navbar-s2 {
-  @apply flex items-center justify-between;
-  @apply w-[7.5rem];
-}
+  #Navbar-s1-links {
+    @apply sm:absolute sm:top-0 sm:left-0 sm:w-full;
+    @apply md:relative;
+    @apply sm:bg-blackLightbox;
+  }
+  #Navbar-s1-links-container {
+    @apply sm:w-[20rem] sm:h-screen sm:pl-[1.2rem];
+    @apply md:w-auto md:h-auto md:pl-[0rem];
+    @apply bg-white;
+  }
 
-#Navbar-s2 > img {
-  @apply cursor-pointer hover:border-2 hover:border-Orange rounded-full;
-  @apply h-[3.5rem] w-[3.5rem];
+  #Navbar-s1 ul {
+    @apply flex md:space-x-7 items-center;
+    @apply sm:flex-col sm:items-start;
+    @apply md:flex-row;
+  }
+
+  #Navbar-s1 ul li {
+    @apply hover:font-bold border-transparent md:hover:border-Orange;
+    @apply sm:h-[3rem] sm:pt-[0] sm:font-bold;
+    @apply md:h-[7rem] md:pt-[2.6rem] md:font-normal;
+    @apply border-b-[6px] text-[1.2rem];
+    @apply sm:text-black md:text-grayishBlue hover:text-veryDarkBlue;
+  }
+
+  #Navbar-s2 {
+    @apply flex items-center justify-between;
+    @apply w-[7.5rem];
+  }
+
+  #Navbar-s2 > img {
+    @apply cursor-pointer rounded-full;
+    @apply hover:border-2 hover:border-Orange;
+    @apply h-[3.5rem] w-[3.5rem];
+  }
 }
