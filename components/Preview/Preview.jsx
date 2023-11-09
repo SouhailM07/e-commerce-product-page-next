@@ -2,6 +2,8 @@
 import "./preview.css";
 // hooks
 import { useState } from "react";
+//
+import { Previewer } from "@/components";
 // assets
 import Image from "next/image";
 import productThum1 from "../../public/image-product-1-thumbnail.jpg";
@@ -15,6 +17,7 @@ import product4 from "../../public/image-product-4.jpg";
 
 export default function Preview() {
   let [selectedProduct, setSelectedProduct] = useState(product1);
+  let [showPrev, setShowPrev] = useState(false);
   let arrOfProducts = [
     {
       thum: productThum1,
@@ -35,12 +38,13 @@ export default function Preview() {
   ];
   return (
     <>
-      <article className="border-2 border-black w-[33rem] ">
-        <div>
+      <article className="border-2 border-black w-[30rem] ">
+        {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
+        <div onClick={() => setShowPrev(true)}>
           <Image
             src={selectedProduct}
             alt="img"
-            className="w-full h-[30rem] rounded-xl"
+            className="w-full h-[25rem] rounded-xl"
           />
         </div>
         <ul className="flex  space-x-10">
@@ -49,9 +53,9 @@ export default function Preview() {
               <li
                 onClick={() => setSelectedProduct(e.img)}
                 key={i}
-                className="h-[9rem] w-[8rem] flex items-end"
+                className="h-[8rem] w-[8rem] flex items-end"
               >
-                <Image src={e.thum} className=" rounded-xl" />
+                <Image src={e.thum} alt="img" className=" rounded-xl" />
               </li>
             );
           })}
