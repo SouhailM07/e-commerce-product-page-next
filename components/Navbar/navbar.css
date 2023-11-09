@@ -21,32 +21,32 @@
   }
 
   .toggle--hide {
-    @apply sm:hidden md:block;
+    @apply xs:hidden md:block;
   }
 
   #Navbar-s1-links {
-    @apply sm:absolute sm:top-0 sm:left-0 sm:w-full;
+    @apply xs:absolute xs:top-0 xs:left-0 xs:w-full;
     @apply md:relative;
-    @apply sm:bg-blackLightbox;
+    @apply xs:bg-blackLightbox;
   }
   #Navbar-s1-links-container {
-    @apply sm:w-[20rem] sm:h-screen sm:pl-[1.2rem];
+    @apply xs:w-[20rem] xs:h-screen xs:pl-[1.2rem];
     @apply md:w-auto md:h-auto md:pl-[0rem];
     @apply bg-white;
   }
 
   #Navbar-s1 ul {
     @apply flex md:space-x-7 items-center;
-    @apply sm:flex-col sm:items-start;
+    @apply xs:flex-col xs:items-start;
     @apply md:flex-row;
   }
 
   #Navbar-s1 ul li {
     @apply hover:font-bold border-transparent md:hover:border-Orange;
-    @apply sm:h-[3rem] sm:pt-[0] sm:font-bold;
+    @apply xs:h-[3rem] xs:pt-[0] xs:font-bold;
     @apply md:h-[7rem] md:pt-[2.6rem] md:font-normal;
     @apply border-b-[6px] text-[1.2rem];
-    @apply sm:text-black md:text-grayishBlue hover:text-veryDarkBlue;
+    @apply xs:text-black md:text-grayishBlue hover:text-veryDarkBlue;
   }
 
   #Navbar-s2 {
