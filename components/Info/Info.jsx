@@ -1,8 +1,16 @@
+"use client";
 import "./info.css";
 // assets
 import Image from "next/image";
 import plus from "../../public/icon-plus.svg";
 import minus from "../../public/icon-minus.svg";
+// !redux
+import { useDispatch, useSelector } from "react-redux";
+import {
+  increment,
+  decrement,
+  addToCart,
+} from "@/app/redux/reducers/price_reducer";
 /*========================================================================================*/
 // component section
 /*========================================================================================*/
@@ -46,10 +54,13 @@ let CartLogo = () => {
   );
 };
 
-let BuyBtn = ({ img, square }) => {
+let BuyBtn = ({ img, square, reduxF }) => {
   return (
     <>
-      <button className={`${square} BuyBtn w-[4rem] border-red-500 border-2`}>
+      <button
+        onClick={reduxF}
+        className={`${square} BuyBtn w-[4rem] border-red-500 border-2`}
+      >
         <Image src={img} alt="" />
       </button>
     </>
@@ -73,15 +84,32 @@ const Pricing_section_price = () => {
 };
 
 const Pricing_section_buy = () => {
+  let counter = useSelector((state) => state.price.count);
+  let currentPrice = useSelector((state) => state.price.price);
+  let dispatch = useDispatch();
   return (
     <>
       <section id="pricing_section_buy">
         <div id="buyControls">
-          <BuyBtn img={minus} square="rounded-tl-xl rounded-bl-xl " />
-          <div id="buyControls-count">0</div>
-          <BuyBtn img={plus} square="rounded-tr-xl rounded-br-xl " />
+          <BuyBtn
+            reduxF={() => dispatch(decrement())}
+            img={minus}
+            square="rounded-tl-xl rounded-bl-xl "
+          />
+          <div id="buyControls-count">{counter}</div>
+          <BuyBtn
+            reduxF={() => dispatch(increment())}
+            img={plus}
+            square="rounded-tr-xl rounded-br-xl "
+          />
         </div>
-        <button id="buyBuy">
+        <button
+          onClick={() => {
+            dispatch(addToCart());
+            console.log(currentPrice);
+          }}
+          id="buyBuy"
+        >
           <span className="mr-[1rem]">
             <CartLogo />
           </span>
