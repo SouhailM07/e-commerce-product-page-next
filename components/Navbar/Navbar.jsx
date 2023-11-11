@@ -2,6 +2,8 @@
 import "./navbar.css";
 //
 import { useState } from "react";
+// components
+import { Cart } from "@/components";
 // assets
 import Image from "next/image";
 import logo from "@/public/logo.svg";
@@ -17,6 +19,7 @@ import closeLogo from "../../public/icon-close.svg";
 export default function Navbar() {
   const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
   const [toggleMenu, setToggleMenu] = useState(false);
+  let [toggleCart, setToggleCart] = useState(false);
   let toggleClass = ["toggle--hide", "toggle--show"];
 
   let toggleF = () => {
@@ -59,9 +62,14 @@ export default function Navbar() {
       {/*======================================================================================*/}
       <div id="Navbar-s2">
         <button>
-          <Image src={cartLogo} alt="cart logo" />
+          <Image
+            onClick={() => setToggleCart(!toggleCart)}
+            src={cartLogo}
+            alt="cart logo"
+          />
         </button>
         <Image src={avatarImg} alt="Button Image" />
+        {toggleCart && <Cart />}
       </div>
     </nav>
   );
