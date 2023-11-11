@@ -7,7 +7,7 @@
 }
 
 #Preview-bigImg {
-  @apply w-full h-[25rem] rounded-xl;
+  @apply w-full h-[25rem] md:rounded-xl;
 }
 
 #Preview ul {

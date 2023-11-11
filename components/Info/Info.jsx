@@ -49,7 +49,7 @@ let CartLogo = () => {
 let BuyBtn = ({ img, square }) => {
   return (
     <>
-      <button id="BuyBtn" className={square}>
+      <button className={`${square} BuyBtn w-[4rem] border-red-500 border-2`}>
         <Image src={img} alt="" />
       </button>
     </>
@@ -82,7 +82,7 @@ const Pricing_section_buy = () => {
           <BuyBtn img={plus} square="rounded-tr-xl rounded-br-xl " />
         </div>
         <button id="buyBuy">
-          <span>
+          <span className="mr-[1rem]">
             <CartLogo />
           </span>
           <span>Add to cart</span>
