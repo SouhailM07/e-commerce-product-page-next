@@ -1,5 +1,7 @@
 "use client";
 import "./previewer.css";
+// 
+import { ArrowBtn } from "@/components";
 //
 import { useState } from "react";
 //
@@ -59,13 +61,13 @@ export default function Previewer({ togglePrev }) {
           <CloseBtn closeF={togglePrev} />
           {/*  */}
           <div className="flex items-center">
-            <MoveArrow image={leftArrow} pos="left-[1.6rem]"btnF={() => leftArrowF()}/>
+            <ArrowBtn image={leftArrow} pos="left-[1.6rem]"btnF={() => leftArrowF()}/>
             <Image
               src={arrOfProducts[selectedPreviewImage].img}
               alt="image"
               className="lg:w-[32rem] md:w-[42vw] md:h-[42vw] lg:h-[32rem] rounded-xl"
             />
-            <MoveArrow image={rightArrow} btnF={() => rightArrowF()}pos="right-[1.7rem]"/>
+            <ArrowBtn image={rightArrow} btnF={() => rightArrowF()}pos="right-[1.7rem]"/>
           </div>
           {/*  */}
           <ul className="flex m-auto md:w-[38vw] lg:w-[27rem] justify-around ">
@@ -88,16 +90,6 @@ export default function Previewer({ togglePrev }) {
 
 // small components
 
-let MoveArrow = ({ image, pos, btnF }) => {
-  return (
-    <button
-      onClick={btnF}
-      className={`${pos} h-[3.5rem] relative bg-white grid place-items-center rounded-full w-[3.5rem]`}
-    >
-      <Image src={image} alt="logo" />
-    </button>
-  );
-};
 
 let CloseBtn = ({ closeF }) => {
   return (

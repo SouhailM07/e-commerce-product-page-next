@@ -3,7 +3,7 @@ import "./preview.css";
 // hooks
 import { useState } from "react";
 //
-import { Previewer } from "@/components";
+import { Previewer, ArrowBtn } from "@/components";
 // assets
 import Image from "next/image";
 import productThum1 from "../../public/image-product-1-thumbnail.jpg";
@@ -44,8 +44,8 @@ export default function Preview() {
       <article id="Preview">
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
         <div className="xs:flex md:hidden xs:w-[90vw] sm:w-[35rem] bg-blackLightbox absolute h-[23rem] flex justify-between items-center px-[1rem] ">
-          <MoveArrow image={leftArrow} btnF={() => leftArrowF()} />
-          <MoveArrow image={rightArrow} btnF={() => leftArrowF()} />
+          <ArrowBtn image={leftArrow} btnF={() => leftArrowF()} />
+          <ArrowBtn image={rightArrow} btnF={() => leftArrowF()} />
         </div>
         <div onClick={() => setShowPrev(true)}>
           <Image src={selectedProduct} alt="img" id="Preview-bigImg" />
@@ -63,14 +63,3 @@ export default function Preview() {
     </>
   );
 }
-
-let MoveArrow = ({ image, pos, btnF }) => {
-  return (
-    <button
-      onClick={btnF}
-      className={`${pos} h-[3.5rem] relative bg-white grid place-items-center rounded-full w-[3.5rem]`}
-    >
-      <Image src={image} alt="logo" />
-    </button>
-  );
-};

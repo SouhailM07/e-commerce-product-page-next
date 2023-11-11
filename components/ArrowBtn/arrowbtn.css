@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ArrowBtn {
+  @apply h-[3.5rem] relative bg-white grid place-items-center rounded-full w-[3.5rem];
+}
