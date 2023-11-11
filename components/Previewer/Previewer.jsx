@@ -59,21 +59,21 @@ export default function Previewer({ togglePrev }) {
           <CloseBtn closeF={togglePrev} />
           {/*  */}
           <div className="flex items-center">
-            <MoveArrow image={leftArrow} pos="left-[2rem]"btnF={() => leftArrowF()}/>
+            <MoveArrow image={leftArrow} pos="left-[1.6rem]"btnF={() => leftArrowF()}/>
             <Image
               src={arrOfProducts[selectedPreviewImage].img}
               alt="image"
-              className="w-[32rem] h-[32rem] rounded-xl"
+              className="lg:w-[32rem] md:w-[42vw] md:h-[42vw] lg:h-[32rem] rounded-xl"
             />
-            <MoveArrow image={rightArrow} btnF={() => rightArrowF()}pos="right-[2rem]"/>
+            <MoveArrow image={rightArrow} btnF={() => rightArrowF()}pos="right-[1.7rem]"/>
           </div>
           {/*  */}
-          <ul className="flex m-auto w-[30rem] justify-around ">
+          <ul className="flex m-auto md:w-[38vw] lg:w-[27rem] justify-around ">
             {arrOfProducts.map((e, i) => {
               return (
                 <li
                   key={i}
-                  className="h-[6rem] w-[4.5rem] flex items-end"
+                  className="flex items-end"
                 >
                   <Image src={e.thum} alt="logo" className=" rounded-xl" />
                 </li>
@@ -105,7 +105,7 @@ let CloseBtn = ({ closeF }) => {
       <Image
         src={closeLogo}
         alt="logo"
-        className="relative left-[34.5rem] mb-[0.8rem]"
+        className="relative md:left-[45.5vw] lg:left-[34.5rem] mb-[0.8rem]"
       />
     </button>
   );

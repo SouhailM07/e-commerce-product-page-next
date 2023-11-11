@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#Preview {
+  @apply border-2 border-black lg:w-[30rem] md:w-[42vw];
+}
+
+#Preview-bigImg {
+  @apply w-full h-[25rem] rounded-xl;
+}
+
+#Preview ul {
+  @apply space-x-10 md:flex xs:hidden;
+}
+
+#Preview ul li {
+  @apply h-[8rem] w-[8rem] flex items-end;
+}
+
+#Preview ul li img {
+  @apply rounded-xl;
+}

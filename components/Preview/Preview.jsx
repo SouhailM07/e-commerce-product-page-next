@@ -38,24 +38,16 @@ export default function Preview() {
   ];
   return (
     <>
-      <article className="border-2 border-black w-[30rem] ">
+      <article id="Preview">
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
         <div onClick={() => setShowPrev(true)}>
-          <Image
-            src={selectedProduct}
-            alt="img"
-            className="w-full h-[25rem] rounded-xl"
-          />
+          <Image src={selectedProduct} alt="img" id="Preview-bigImg" />
         </div>
-        <ul className="flex  space-x-10">
+        <ul>
           {arrOfProducts.map((e, i) => {
             return (
-              <li
-                onClick={() => setSelectedProduct(e.img)}
-                key={i}
-                className="h-[8rem] w-[8rem] flex items-end"
-              >
-                <Image src={e.thum} alt="img" className=" rounded-xl" />
+              <li onClick={() => setSelectedProduct(e.img)} key={i}>
+                <Image src={e.thum} alt="img" />
               </li>
             );
           })}
