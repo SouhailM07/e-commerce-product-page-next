@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 #Preview {
-  @apply border-2 border-black lg:w-[30rem] md:w-[42vw];
+  @apply lg:w-[30rem] md:w-[42vw] md:m-[0rem] xs:m-auto xs:w-[90vw] sm:w-[35rem];
 }
 
 #Preview-bigImg {
-  @apply w-full h-[25rem] md:rounded-xl;
+  @apply w-full lg:h-[25rem] md:rounded-xl xs:h-[23rem];
 }
 
 #Preview ul {

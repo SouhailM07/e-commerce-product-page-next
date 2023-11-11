@@ -15,6 +15,9 @@ import product2 from "../../public/image-product-2.jpg";
 import product3 from "../../public/image-product-3.jpg";
 import product4 from "../../public/image-product-4.jpg";
 
+import leftArrow from "../../public/icon-previous.svg";
+import rightArrow from "../../public/icon-next.svg";
+
 export default function Preview() {
   let [selectedProduct, setSelectedProduct] = useState(product1);
   let [showPrev, setShowPrev] = useState(false);
@@ -40,6 +43,10 @@ export default function Preview() {
     <>
       <article id="Preview">
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
+        <div className="xs:flex md:hidden xs:w-[90vw] sm:w-[35rem] bg-blackLightbox absolute h-[23rem] flex justify-between items-center px-[1rem] ">
+          <MoveArrow image={leftArrow} btnF={() => leftArrowF()} />
+          <MoveArrow image={rightArrow} btnF={() => leftArrowF()} />
+        </div>
         <div onClick={() => setShowPrev(true)}>
           <Image src={selectedProduct} alt="img" id="Preview-bigImg" />
         </div>
@@ -56,3 +63,14 @@ export default function Preview() {
     </>
   );
 }
+
+let MoveArrow = ({ image, pos, btnF }) => {
+  return (
+    <button
+      onClick={btnF}
+      className={`${pos} h-[3.5rem] relative bg-white grid place-items-center rounded-full w-[3.5rem]`}
+    >
+      <Image src={image} alt="logo" />
+    </button>
+  );
+};
