@@ -19,8 +19,21 @@ import leftArrow from "../../public/icon-previous.svg";
 import rightArrow from "../../public/icon-next.svg";
 
 export default function Preview() {
-  let [selectedProduct, setSelectedProduct] = useState(product1);
   let [showPrev, setShowPrev] = useState(false);
+  let leftArrowF = () => {
+    if (selectedProduct < 1) {
+      setSelectedProduct(3);
+    } else {
+      setSelectedProduct(--selectedProduct);
+    }
+  };
+  let rightArrowF = () => {
+    if (selectedProduct > 2) {
+      setSelectedProduct(0);
+    } else {
+      setSelectedProduct(++selectedProduct);
+    }
+  };
   let arrOfProducts = [
     {
       thum: productThum1,
@@ -39,21 +52,26 @@ export default function Preview() {
       img: product4,
     },
   ];
+  let [selectedProduct, setSelectedProduct] = useState(0);
   return (
     <>
       <article id="Preview">
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
-        <div className="xs:flex md:hidden xs:w-[90vw] sm:w-[35rem] bg-blackLightbox absolute h-[23rem] flex justify-between items-center px-[1rem] ">
+        <div id="XsImg">
           <ArrowBtn image={leftArrow} btnF={() => leftArrowF()} />
-          <ArrowBtn image={rightArrow} btnF={() => leftArrowF()} />
+          <ArrowBtn image={rightArrow} btnF={() => rightArrow()} />
         </div>
         <div onClick={() => setShowPrev(true)}>
-          <Image src={selectedProduct} alt="img" id="Preview-bigImg" />
+          <Image
+            src={arrOfProducts[selectedProduct].img}
+            alt="img"
+            id="Preview-bigImg"
+          />
         </div>
         <ul>
           {arrOfProducts.map((e, i) => {
             return (
-              <li onClick={() => setSelectedProduct(e.img)} key={i}>
+              <li onClick={() => setSelectedProduct(i)} key={i}>
                 <Image src={e.thum} alt="img" />
               </li>
             );

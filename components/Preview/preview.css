@@ -6,6 +6,9 @@
   @apply lg:w-[30rem] md:w-[42vw] md:m-[0rem] xs:m-auto xs:w-[90vw] sm:w-[35rem];
 }
 
+#XsImg {
+  @apply xs:flex md:hidden xs:w-[90vw] sm:w-[35rem] absolute h-[23rem] flex justify-between items-center px-[1rem];
+}
 #Preview-bigImg {
   @apply w-full lg:h-[25rem] md:rounded-xl xs:h-[23rem];
 }

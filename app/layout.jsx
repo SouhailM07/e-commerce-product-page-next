@@ -1,5 +1,7 @@
 import { Kumbh_Sans } from "next/font/google";
 import "@/styles/globals.css";
+//
+import ReduxProvider from "./redux/ReduxProvider";
 
 const kumbh_sans = Kumbh_Sans({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -11,7 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={kumbh_sans.className}>{children}</body>
+      <body className={kumbh_sans.className}>
+        <ReduxProvider>{children}</ReduxProvider>
+      </body>
     </html>
   );
 }
