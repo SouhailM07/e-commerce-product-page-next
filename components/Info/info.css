@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  #Info {
+    @apply flex items-center;
+    @apply lg:w-[40rem] md:w-[50vw] lg:pl-[2rem];
+  }
+
+  #Info h3 {
+    @apply font-bold uppercase;
+    @apply text-[1.1rem] lg:mb-[1rem];
+    @apply text-Orange;
+  }
+
+  #Info h1 {
+    @apply font-bold;
+    @apply text-[3rem];
+    @apply text-veryDarkBlue;
+    line-height: 3rem;
+  }
+
+  #Info-details {
+    @apply font-bold;
+    @apply my-[2rem] text-[1.1rem] lg:pr-[4rem] md:pr-[1rem];
+    @apply text-grayishBlue;
+  }
+
+  #pricing_section_price {
+    @apply flex;
+    @apply xs:flex-row;
+    @apply md:flex-col;
+  }
+
+  #pricing_section_buy {
+    @apply flex;
+    @apply xs:flex-col-reverse;
+    @apply md:flex-row;
+  }
+
+  #BuyBtn {
+    @apply grid place-items-center;
+    @apply lg:h-[3.5rem] lg:w-[5rem] md:h-[3.5rem] md:w-[5vw];
+    @apply bg-lightGrayishBlue;
+  }
+
+  #pricing_section_price #newPrice {
+    @apply flex items-center mb-[0.7rem];
+  }
+
+  #newPrice-price {
+    @apply inline-block mr-3 font-bold;
+    @apply text-[2rem];
+  }
+
+  #newPrice-percent {
+    @apply flex justify-center items-end rounded-lg;
+    @apply h-[1.6rem] w-[3rem] text-[1.1rem];
+    @apply bg-orange-200 text-center text-Orange;
+  }
+
+  #buyControls {
+    @apply flex;
+  }
+
+  #buyControls-count {
+    @apply flex justify-center items-center font-bold;
+    @apply h-[3.5rem] w-[5rem] text-[1.5rem];
+    @apply bg-lightGrayishBlue;
+  }
+  #buyBuy {
+    @apply flex items-center justify-evenly rounded-xl;
+    @apply lg:w-[17rem] md:ml-[1.5rem] md:w-[24vw] px-[2rem] text-[1.3rem] h-[3.5rem];
+    @apply bg-Orange text-white;
+  }
+}
