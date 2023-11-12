@@ -20,8 +20,12 @@ let price_slicer = createSlice({
     addToCart: (state) => {
       state.price = state.price * state.count;
     },
+    reset: (state) => {
+      state.price = 125;
+      state.count = 0;
+    },
   },
 });
 
-export const { increment, decrement, addToCart } = price_slicer.actions;
+export const { increment, decrement, addToCart, reset } = price_slicer.actions;
 export default price_slicer.reducer;
