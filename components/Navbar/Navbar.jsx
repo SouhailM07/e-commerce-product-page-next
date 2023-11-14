@@ -2,6 +2,8 @@
 import "./navbar.css";
 //
 import { useState } from "react";
+// !redux
+import { useSelector } from "react-redux";
 // components
 import { Cart } from "@/components";
 // assets
@@ -17,6 +19,8 @@ import closeLogo from "../../public/icon-close.svg";
 /*========================================================================================*/
 
 export default function Navbar() {
+  let counter = useSelector((state) => state.price.count);
+  //
   const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
   const [toggleMenu, setToggleMenu] = useState(false);
   let [toggleCart, setToggleCart] = useState(false);
@@ -68,6 +72,9 @@ export default function Navbar() {
             alt="cart logo"
           />
         </button>
+        <div className="relative right-[1.3rem] rounded-full w-[1.7rem] text-white text-center h-[1.5rem] bottom-[1rem] bg-Orange">
+          {counter}
+        </div>
         <Image src={avatarImg} alt="Button Image" />
         {toggleCart && <Cart />}
       </div>

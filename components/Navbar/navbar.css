@@ -13,7 +13,7 @@
   }
 
   #Navbar-s1 > img {
-    @apply w-[13rem] h-[2rem] mr-[4rem];
+    @apply md:w-[13rem] xs:w-[10rem] xs:h-[1.5rem] md:h-[2rem] mr-[4rem];
   }
 
   .toggle--show {
@@ -25,12 +25,12 @@
   }
 
   #Navbar-s1-links {
-    @apply xs:absolute xs:top-0 xs:left-0 xs:w-full;
+    @apply xs:absolute xs:top-0 xs:left-0 xs:w-full overflow-auto xs:h-screen md:h-full;
     @apply md:relative;
     @apply xs:bg-blackLightbox;
   }
   #Navbar-s1-links-container {
-    @apply xs:w-[20rem] xs:h-screen xs:pl-[1.2rem];
+    @apply xs:w-[20rem] xs:h-full xs:pl-[1.2rem] overflow-auto;
     @apply md:w-auto md:h-auto md:pl-[0rem];
     @apply bg-white;
   }

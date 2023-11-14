@@ -1,7 +1,7 @@
 "use client";
 import "./preview.css";
 // hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 //
 import { Previewer, ArrowBtn } from "@/components";
 // assets
@@ -20,6 +20,10 @@ import rightArrow from "../../public/icon-next.svg";
 
 export default function Preview() {
   let [showPrev, setShowPrev] = useState(false);
+  useEffect(() => {
+    let defaultCheck = document.querySelector("input[type='radio']");
+    defaultCheck.click();
+  }, []);
   let leftArrowF = () => {
     if (selectedProduct < 1) {
       setSelectedProduct(3);
@@ -59,7 +63,7 @@ export default function Preview() {
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
         <div id="XsImg">
           <ArrowBtn image={leftArrow} btnF={() => leftArrowF()} />
-          <ArrowBtn image={rightArrow} btnF={() => rightArrow()} />
+          <ArrowBtn image={rightArrow} btnF={() => rightArrowF()} />
         </div>
         <div onClick={() => setShowPrev(true)}>
           <Image
@@ -72,7 +76,16 @@ export default function Preview() {
           {arrOfProducts.map((e, i) => {
             return (
               <li onClick={() => setSelectedProduct(i)} key={i}>
-                <Image src={e.thum} alt="img" />
+                <input
+                  type="radio"
+                  id={e + i}
+                  name="projects"
+                  className="hidden"
+                />
+                <label htmlFor={e + i}>
+                  <div className=" absolute lg:h-[5.8rem] md:h-[8vw] md:w-[7.8vw] rounded-xl lg:w-[5.8rem]"></div>
+                  <Image src={e.thum} alt="img" />
+                </label>
               </li>
             );
           })}
