@@ -4,14 +4,14 @@
 
 @layer components {
   #Previewer {
-    @apply absolute top-0 left-0 flex justify-center items-center;
+    @apply absolute top-0 left-0 flex justify-center items-center z-[20];
     @apply h-screen overflow-auto w-full;
     @apply bg-blackLightbox;
   }
 }
 
-/* input[type="radio"]:checked + label > div {
+#Previewer ul input[type="radio"]:checked + label > div {
   border: 3px solid orange;
   border-radius: 10px;
   background-color: rgb(225 218 218 / 64%);
-} */
+}

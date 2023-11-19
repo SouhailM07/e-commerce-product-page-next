@@ -25,8 +25,8 @@
   }
 
   #Navbar-s1-links {
-    @apply xs:absolute xs:top-0 xs:left-0 xs:w-full overflow-auto xs:h-screen md:h-full;
-    @apply md:relative;
+    @apply xs:fixed xs:top-0 xs:left-0 xs:w-full overflow-auto xs:h-full md:h-full;
+    @apply md:relative z-[8];
     @apply xs:bg-blackLightbox;
   }
   #Navbar-s1-links-container {

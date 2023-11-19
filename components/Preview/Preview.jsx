@@ -6,24 +6,21 @@ import { useState, useEffect } from "react";
 import { Previewer, ArrowBtn } from "@/components";
 // assets
 import Image from "next/image";
-import productThum1 from "../../public/image-product-1-thumbnail.jpg";
-import productThum2 from "../../public/image-product-2-thumbnail.jpg";
-import productThum3 from "../../public/image-product-3-thumbnail.jpg";
-import productThum4 from "../../public/image-product-4-thumbnail.jpg";
-import product1 from "../../public/image-product-1.jpg";
-import product2 from "../../public/image-product-2.jpg";
-import product3 from "../../public/image-product-3.jpg";
-import product4 from "../../public/image-product-4.jpg";
+import productThum1 from "@/public/image-product-1-thumbnail.jpg";
+import productThum2 from "@/public/image-product-2-thumbnail.jpg";
+import productThum3 from "@/public/image-product-3-thumbnail.jpg";
+import productThum4 from "@/public/image-product-4-thumbnail.jpg";
+import product1 from "@/public/image-product-1.jpg";
+import product2 from "@/public/image-product-2.jpg";
+import product3 from "@/public/image-product-3.jpg";
+import product4 from "@/public/image-product-4.jpg";
 
-import leftArrow from "../../public/icon-previous.svg";
-import rightArrow from "../../public/icon-next.svg";
+import leftArrow from "@/public/icon-previous.svg";
+import rightArrow from "@/public/icon-next.svg";
 
 export default function Preview() {
   let [showPrev, setShowPrev] = useState(false);
-  useEffect(() => {
-    let defaultCheck = document.querySelector("input[type='radio']");
-    defaultCheck.click();
-  }, []);
+
   let leftArrowF = () => {
     if (selectedProduct < 1) {
       setSelectedProduct(3);
@@ -57,6 +54,12 @@ export default function Preview() {
     },
   ];
   let [selectedProduct, setSelectedProduct] = useState(0);
+  useEffect(() => {
+    let defaultCheck = document.querySelector(
+      "#Preview ul input[type='radio']"
+    );
+    defaultCheck.click();
+  }, [showPrev]);
   return (
     <>
       <article id="Preview">
@@ -82,8 +85,8 @@ export default function Preview() {
                   name="projects"
                   className="hidden"
                 />
-                <label htmlFor={e + i}>
-                  <div className=" absolute lg:h-[5.8rem] md:h-[8vw] md:w-[7.8vw] rounded-xl lg:w-[5.8rem]"></div>
+                <label htmlFor={e + i} className="grid place-items-center">
+                  <div className=" absolute lg:h-[5.8rem] md:h-[7.9vw] md:w-[7.8vw] rounded-xl lg:w-[5.8rem]"></div>
                   <Image src={e.thum} alt="img" />
                 </label>
               </li>

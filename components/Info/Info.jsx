@@ -2,14 +2,15 @@
 import "./info.css";
 // assets
 import Image from "next/image";
-import plus from "../../public/icon-plus.svg";
-import minus from "../../public/icon-minus.svg";
+import plus from "@/public/icon-plus.svg";
+import minus from "@/public/icon-minus.svg";
 // !redux
 import { useDispatch, useSelector } from "react-redux";
 import {
   increment,
   decrement,
   addToCart,
+  addItemToCart,
 } from "@/app/redux/reducers/price_reducer";
 /*========================================================================================*/
 // component section
@@ -54,14 +55,11 @@ let CartLogo = () => {
   );
 };
 
-let BuyBtn = ({ img, square, reduxF }) => {
+let BuyBtn = ({ img, square, reduxF, imgLocation }) => {
   return (
     <>
-      <button
-        onClick={reduxF}
-        className={`${square} BuyBtn w-[4rem] border-red-500 border-2`}
-      >
-        <Image src={img} alt="" />
+      <button onClick={reduxF} className={`${square} BuyBtn`}>
+        <Image src={img} alt="" className={imgLocation} />
       </button>
     </>
   );
@@ -95,18 +93,22 @@ const Pricing_section_buy = () => {
             reduxF={() => dispatch(decrement())}
             img={minus}
             square="rounded-tl-xl rounded-bl-xl "
+            imgLocation="xs:self-start md:self-center xs:ml-[3rem] md:ml-[0rem]"
           />
           <div id="buyControls-count">{counter}</div>
           <BuyBtn
             reduxF={() => dispatch(increment())}
             img={plus}
             square="rounded-tr-xl rounded-br-xl "
+            imgLocation="xs:self-end md:self-center xs:mr-[3rem] md:mr-[0rem]"
           />
         </div>
         <button
           onClick={() => {
-            dispatch(addToCart());
-            console.log(currentPrice);
+            if (counter > 0) {
+              dispatch(addToCart());
+              dispatch(addItemToCart());
+            }
           }}
           id="buyBuy"
         >

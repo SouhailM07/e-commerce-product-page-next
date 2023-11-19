@@ -9,15 +9,16 @@ import { reset } from "@/app/redux/reducers/price_reducer";
 
 export default function Cart() {
   let counter = useSelector((state) => state.price.count);
+  let addItemToCart_b = useSelector((state) => state.price.addItem);
   let price = useSelector((state) => state.price.price);
   const dispatch = useDispatch("");
   return (
     <>
-      <div className="shadow-xl pb-[1rem] flex flex-col justify-evenly rounded-xl px-[1.5rem] bg-white absolute md:right-[2vw] lg:right-[13vw] top-[6rem]  w-[25rem] h-[15rem]">
+      <div className="shadow-xl pb-[1rem] flex flex-col z-[1] justify-evenly rounded-xl px-[1.5rem] bg-white fixed md:right-[2vw] xs:right-0 lg:right-[13vw] top-[6rem]  w-[25rem] h-[15rem]">
         <h3 className="text-[1.3rem] font-bold">Card</h3>
         <hr className="outline-none h-[2px] bg-grayishBlue" />
         {/*  */}
-        {counter > 0 ? (
+        {addItemToCart_b ? (
           <div>
             <div className="flex justify-between items-center mt-[0.5rem] mb-[1rem] ">
               <Image

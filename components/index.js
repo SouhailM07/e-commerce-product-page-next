@@ -5,4 +5,3 @@ export { default as Previewer } from "./Previewer/Previewer";
 export { default as Info } from "./Info/Info";
 export { default as ArrowBtn } from "./ArrowBtn/ArrowBtn";
 export { default as Cart } from "./Cart/Cart";
-export { default as Navbar_mobile } from "./Navbar_mobile/Navbar_mobile";

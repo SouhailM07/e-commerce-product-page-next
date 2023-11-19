@@ -11,8 +11,8 @@ import Image from "next/image";
 import logo from "@/public/logo.svg";
 import avatarImg from "@/public/image-avatar.png";
 import cartLogo from "@/public/icon-cart.svg";
-import menuLogo from "../../public/icon-menu.svg";
-import closeLogo from "../../public/icon-close.svg";
+import menuLogo from "@/public/icon-menu.svg";
+import closeLogo from "@/public/icon-close.svg";
 
 /*========================================================================================*/
 // component section
@@ -20,6 +20,7 @@ import closeLogo from "../../public/icon-close.svg";
 
 export default function Navbar() {
   let counter = useSelector((state) => state.price.count);
+  let addItemToCart_b = useSelector((state) => state.price.addItem);
   //
   const menuItems = ["Collections", "Men", "Women", "About", "Contact"];
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -73,7 +74,7 @@ export default function Navbar() {
           />
         </button>
         <div className="relative right-[1.3rem] rounded-full w-[1.7rem] text-white text-center h-[1.5rem] bottom-[1rem] bg-Orange">
-          {counter}
+          {addItemToCart_b ? counter : 0}
         </div>
         <Image src={avatarImg} alt="Button Image" />
         {toggleCart && <Cart />}
