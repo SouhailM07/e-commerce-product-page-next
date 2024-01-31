@@ -21,9 +21,9 @@ export default function Info() {
     <>
       <article id="Info">
         {/* Info container to flex it to center */}
-        <div>
-          <h3>Sneaker Company</h3>
-          <h1>Fall Limited Edition Sneakers</h1>
+        <section>
+          <h1>Sneaker Company</h1>
+          <h2>Fall Limited Edition Sneakers</h2>
           <p id="Info-details">
             These low-profile sneakers are your perfect casual wear companion.
             Featuring a durable rubber outer sole, they’ll withstand everything
@@ -33,7 +33,7 @@ export default function Info() {
           <Pricing_section_price />
           {/* pricing section to buy */}
           <Pricing_section_buy />
-        </div>
+        </section>
       </article>
     </>
   );
@@ -55,11 +55,15 @@ let CartLogo = () => {
   );
 };
 
-let BuyBtn = ({ img, square, reduxF, imgLocation }) => {
+let BuyBtn = ({ img, square, reduxF, imgLocation, ariaTxt }) => {
   return (
     <>
-      <button onClick={reduxF} className={`${square} BuyBtn`}>
-        <Image src={img} alt="" className={imgLocation} />
+      <button
+        aria-label={ariaTxt}
+        onClick={reduxF}
+        className={`${square} BuyBtn`}
+      >
+        <Image src={img} alt="logo" className={imgLocation} />
       </button>
     </>
   );
@@ -90,6 +94,7 @@ const Pricing_section_buy = () => {
       <section id="pricing_section_buy">
         <div id="buyControls">
           <BuyBtn
+            ariaTxt="minus btn"
             reduxF={() => dispatch(decrement())}
             img={minus}
             square="rounded-tl-xl rounded-bl-xl "
@@ -97,6 +102,7 @@ const Pricing_section_buy = () => {
           />
           <div id="buyControls-count">{counter}</div>
           <BuyBtn
+            ariaTxt="plus btn"
             reduxF={() => dispatch(increment())}
             img={plus}
             square="rounded-tr-xl rounded-br-xl "

@@ -63,19 +63,20 @@ export default function Previewer({ togglePrev }) {
           <CloseBtn closeF={togglePrev} />
           {/*  */}
           <div className="flex items-center">
-            <ArrowBtn image={leftArrow} pos="left-[1.6rem]"btnF={() => leftArrowF()}/>
+            <ArrowBtn arrowAlt="left arrow" image={leftArrow} pos="left-[1.6rem]"btnF={() => leftArrowF()}/>
             <Image
               src={arrOfProducts[selectedPreviewImage].img}
               alt="image"
               className="lg:w-[32rem] md:w-[42vw] md:h-[42vw] lg:h-[32rem] rounded-xl"
             />
-            <ArrowBtn image={rightArrow} btnF={() => rightArrowF()}pos="right-[1.7rem]"/>
+            <ArrowBtn arrowAlt="right arrow" image={rightArrow} btnF={() => rightArrowF()}pos="right-[1.7rem]"/>
           </div>
           {/*  */}
-          <ul className="flex m-auto md:w-[38vw] lg:w-[27rem] justify-around ">
+          <ul role="list" className="flex m-auto md:w-[38vw] lg:w-[27rem] justify-around ">
             {arrOfProducts.map((e, i) => {
               return (
                 <li
+                role="listitem"
                   key={i}
                   className="flex items-end "
                 ><input
@@ -83,10 +84,9 @@ export default function Previewer({ togglePrev }) {
                 name="projects"
                 className="hidden "
               />
-              <label  className="grid place-items-center">
+              <label className="grid place-items-center">
                 <div className=" absolute lg:h-[5rem] md:h-[7vw] md:w-[7vw] rounded-xl lg:w-[5.1rem]"></div>
-                  <Image src={e.thum} alt="logo" className=" rounded-xl" />
-                
+                  <Image src={e.thum} alt="image" className=" rounded-xl" />
               </label>
                 </li>
               );
@@ -108,7 +108,7 @@ let CloseBtn = ({ closeF }) => {
       <svg
        className="relative md:left-[45.5vw] lg:left-[34.5rem] mb-[0.8rem] fill-[#69707D] hover:fill-Orange"
        width="14" height="15" xmlns="http://www.w3.org/2000/svg">
-    <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"  fill-rule="evenodd"/>
+    <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"  fillRule="evenodd"/>
     </svg>
     </button>
        </>

@@ -8,13 +8,13 @@
     @apply lg:w-[40rem] md:w-[50vw] lg:pl-[2rem] xs:px-[2rem] md:px-[0rem];
   }
 
-  #Info h3 {
+  #Info h1 {
     @apply font-bold uppercase;
     @apply text-[1.1rem] lg:mb-[1rem] my-[1.5rem];
     @apply text-Orange;
   }
 
-  #Info h1 {
+  #Info h2 {
     @apply font-bold;
     @apply md:text-[3rem] xs:text-[2.5rem];
     @apply text-veryDarkBlue;

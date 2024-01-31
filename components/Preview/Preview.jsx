@@ -65,8 +65,8 @@ export default function Preview() {
       <article id="Preview">
         {showPrev && <Previewer togglePrev={() => setShowPrev(false)} />}
         <div id="XsImg">
-          <ArrowBtn image={leftArrow} btnF={() => leftArrowF()} />
-          <ArrowBtn image={rightArrow} btnF={() => rightArrowF()} />
+          <ArrowBtn arrowAlt="left arrow" image={leftArrow} btnF={() => leftArrowF()} />
+          <ArrowBtn arrowAlt="right arrow" image={rightArrow} btnF={() => rightArrowF()} />
         </div>
         <div onClick={() => setShowPrev(true)}>
           <Image
@@ -75,10 +75,10 @@ export default function Preview() {
             id="Preview-bigImg"
           />
         </div>
-        <ul>
+        <ul role="list">
           {arrOfProducts.map((e, i) => {
             return (
-              <li onClick={() => setSelectedProduct(i)} key={i}>
+              <li role="listitem" onClick={() => setSelectedProduct(i)} key={i}>
                 <input
                   type="radio"
                   id={e + i}
@@ -86,7 +86,7 @@ export default function Preview() {
                   className="hidden"
                 />
                 <label htmlFor={e + i} className="grid place-items-center">
-                  <div className=" absolute lg:h-[5.8rem] md:h-[7.9vw] md:w-[7.8vw] rounded-xl lg:w-[5.8rem]"></div>
+                  <div className="absolute lg:h-[5.8rem] md:h-[7.9vw] md:w-[7.8vw] rounded-xl lg:w-[5.8rem]"></div>
                   <Image src={e.thum} alt="img" />
                 </label>
               </li>
